@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Paint brush",
+        "description": "Best quality brush",
+        "minimumQty": 50,
+        "availableQty": 150,
+        "image": "https://i.ibb.co/fFnB8qk/brush.jpg",
+        "price": 5
+    },
+    {
+        "name": "Paint brush",
+        "description": "Best quality brush",
+        "minimumQty": 50,
+        "availableQty": 150,
+        "image": "https://i.ibb.co/fFnB8qk/brush.jpg",
+        "price": 5
+    },
+    {
+        "name": "Paint brush",
+        "description": "Best quality brush",
+        "minimumQty": 50,
+        "availableQty": 150,
+        "image": "https://i.ibb.co/fFnB8qk/brush.jpg",
+        "price": 5
+    },
+    {
+        "name": "Paint brush",
+        "description": "Best quality brush",
+        "minimumQty": 50,
+        "availableQty": 150,
+        "image": "https://i.ibb.co/fFnB8qk/brush.jpg",
+        "price": 5
+    },
+    {
+        "name": "Paint brush",
+        "description": "Best quality brush",
+        "minimumQty": 50,
+        "availableQty": 150,
+        "image": "https://i.ibb.co/fFnB8qk/brush.jpg",
+        "price": 5
+    },
+    {
+        "name": "Paint brush",
+        "description": "Best quality brush",
+        "minimumQty": 50,
+        "availableQty": 150,
+        "image": "https://i.ibb.co/fFnB8qk/brush.jpg",
+        "price": 5
+    }
+]
