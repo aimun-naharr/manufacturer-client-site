@@ -1,44 +1,57 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import auth from '../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import Loading from '../Shared/Loading';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const Login = () => {
+import Loading from '../Shared/Loading';
+import { Link } from 'react-router-dom';
+
+const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
     // const [loginError, setLoginError]=useState('')
     const { register, formState: { errors }, handleSubmit } = useForm();
-    let navigate = useNavigate()
-    let location = useLocation()
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
-        userError,
-      ] = useSignInWithEmailAndPassword(auth)
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true})
       if(loading || googleLoading){
           return <Loading></Loading>
+      }
+
+      if(user|| googleUser){
+          
       }
     // if(userError){
     //    return setLoginError(userError)
     // }
-    let from = location.state?.from?.pathname || "/";
-    if(user|| googleUser){
-        navigate(from, { replace: true })
-    }
     const onSubmit = data => {
         const email = data.email
         const password = data.password
-        signInWithEmailAndPassword(email, password)
+        createUserWithEmailAndPassword (email, password)
     };
     return (
         <div class="card w-96 bg-base-100 shadow-xl mx-auto">
             <div className='items-center text-center p-5'>
-                <h1 className='text-center text-3xl font-bold'>LOGIN</h1>
+                <h1 className='text-center text-3xl font-bold'>SIGN UP</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">Name</span>
+
+                        </label>
+                        <input {...register("name", {
+                            required: {
+                                value: true,
+                                message: 'Name is required'
+                            }
+                            
+                        })} type="text" placeholder="Name" class="input input-bordered w-100 max-w-xs" />
+                        <label class="label">
+                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            
+                        </label>
                         <label class="label">
                             <span class="label-text">Email</span>
 
@@ -77,8 +90,8 @@ const Login = () => {
                         </label>
                     </div>
 
-                    <input value='Login' className='btn btn-block' type="submit" />
-                    <p>New to brush manufacture?<Link className='btn btn-active btn-link' to='/signup'>Please Sign Up</Link></p>
+                    <input value='sign up' className='btn btn-block' type="submit" />
+                    <p>Already registered?<Link className='btn btn-active btn-link' to='/login'>Please log in</Link></p>
                     {/* {
                         loginError && <p className='text-red-500'>{loginError}</p>
                     } */}
@@ -91,4 +104,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

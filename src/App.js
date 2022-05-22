@@ -6,7 +6,7 @@ import Navbar from './Shared/Navbar';
 import Login from './Pages/Login';
 import PrivateRoute from './Shared/PrivateRoute';
 import Purchase from './Pages/Purchase';
-
+import SignUp from './Pages/SignUp'
 function App() {
   return (
     <div className='lg:px-20'>
@@ -15,7 +15,8 @@ function App() {
       <Route path='/home' element={<Home/>}></Route>
       <Route path='/' element={<Home/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
-      <Route path='/purchase' element={<PrivateRoute><Purchase></Purchase></PrivateRoute>}></Route>
+      <Route path='/signup' element={<SignUp/>}></Route>
+      <Route path='/purchase/:id' element={<PrivateRoute><Purchase></Purchase></PrivateRoute>}></Route>
       </Routes>
     
     </div>
