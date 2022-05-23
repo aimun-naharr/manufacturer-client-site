@@ -1,31 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import auth from '../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
+    const [user, userLoading, authError] = useAuthState(auth)
+    const userEmail = user?.email
+
     // const [loginError, setLoginError]=useState('')
     const { register, formState: { errors }, handleSubmit } = useForm();
     let navigate = useNavigate()
     let location = useLocation()
     const [
         signInWithEmailAndPassword,
-        user,
+        emailUser,
         loading,
         userError,
-      ] = useSignInWithEmailAndPassword(auth)
-      if(loading || googleLoading){
-          return <Loading></Loading>
-      }
+    ] = useSignInWithEmailAndPassword(auth)
+    if (loading || googleLoading) {
+        return <Loading></Loading>
+    }
     // if(userError){
     //    return setLoginError(userError)
     // }
     let from = location.state?.from?.pathname || "/";
-    if(user|| googleUser){
+    if (emailUser) {
+        // fetch('http://localhost:5000/login', {
+        //     method: 'POST',
+        //     body: JSON.stringify({ userEmail }),
+        //     headers: {
+        //         'Content-type': 'application/json; charset=UTF-8',
+        //     },
+        // })
+        //     .then((response) => {
+        //         console.log(response)
+        //        return response.json()
+        //     })
+        //     .then((data) => {
+        //         console.log(data)
+        //     });
+        console.log(emailUser)
         navigate(from, { replace: true })
     }
     const onSubmit = data => {
