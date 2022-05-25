@@ -52,6 +52,7 @@ const Purchase = () => {
                 .then((response) => response.json())
                 .then((data) =>{
                     console.log(data)
+                    toast.success('Your order has been placed')
                 });
         }
 
@@ -107,7 +108,7 @@ const Purchase = () => {
                             <span class="label-text">Quantity</span>
 
                         </label>
-                        <input required type="number" name='quantity' placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                        <input defaultValue={minimumQty} min={minimumQty} max={availableQty} required type="number" name='quantity' placeholder="Type here" class="input input-bordered w-full max-w-xs" />
                         <span className='text-red-500'>{quantityError}</span>
 
                     </div>

@@ -6,6 +6,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth'
+import useAllUser from '../hooks/useAllUser';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
@@ -22,6 +23,7 @@ const Login = () => {
         loading,
         userError,
     ] = useSignInWithEmailAndPassword(auth)
+    const [allUser] = useAllUser(emailUser)
     if (loading || googleLoading) {
         return <Loading></Loading>
     }
@@ -29,22 +31,9 @@ const Login = () => {
     //    return setLoginError(userError)
     // }
     let from = location.state?.from?.pathname || "/";
-    if (emailUser) {
-        // fetch('http://localhost:5000/login', {
-        //     method: 'POST',
-        //     body: JSON.stringify({ userEmail }),
-        //     headers: {
-        //         'Content-type': 'application/json; charset=UTF-8',
-        //     },
-        // })
-        //     .then((response) => {
-        //         console.log(response)
-        //        return response.json()
-        //     })
-        //     .then((data) => {
-        //         console.log(data)
-        //     });
-        console.log(emailUser)
+    if (allUser) {
+        
+        
         navigate(from, { replace: true })
     }
     const onSubmit = data => {

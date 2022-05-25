@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth'
 import auth from '../firebase.init';
-
 import Loading from '../Shared/Loading';
-import { Link, useNavigate ,useLocation} from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import useAllUser from '../hooks/useAllUser';
 
 const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
+
     let navigate = useNavigate()
-      let location = useLocation()
+    let location = useLocation()
     // const [loginError, setLoginError]=useState('')
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
@@ -17,28 +18,31 @@ const SignUp = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true})
-      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [allUser] = useAllUser(user || googleUser)
+    if (loading || googleLoading || updating) {
+        return <Loading></Loading>
+    }
 
-      if(loading || googleLoading || updating){
-          return <Loading></Loading>
-      }
-      
-      let from = location.state?.from?.pathname || "/";
-      if(user|| googleUser ||updateProfile){
+    let from = location.state?.from?.pathname || "/";
+    if (allUser) {
         navigate(from, { replace: true })
-        
-      }
+
+    }
+    if (updateProfile) {
+        navigate(from, { replace: true })
+    }
     // if(userError){
     //    return setLoginError(userError)
     // }
-    const onSubmit = async(data) => {
+    const onSubmit = async (data) => {
         const email = data.email
         const password = data.password
-        
-        await createUserWithEmailAndPassword (email, password)
-        await updateProfile({displayName:data.name});
-          alert('Updated profile');
+
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName: data?.name });
+
     };
     return (
         <div class="card w-96 bg-base-100 shadow-xl mx-auto">
@@ -55,11 +59,11 @@ const SignUp = () => {
                                 value: true,
                                 message: 'Name is required'
                             }
-                            
+
                         })} type="text" placeholder="Name" class="input input-bordered w-100 max-w-xs" />
                         <label class="label">
                             {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
-                            
+
                         </label>
                         <label class="label">
                             <span class="label-text">Email</span>
