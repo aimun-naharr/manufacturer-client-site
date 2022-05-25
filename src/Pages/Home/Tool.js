@@ -8,7 +8,7 @@ navigate(`/purchase/${id}`)
   }
     return (
         <div class="card card-compact md:w-96 w-72 bg-base-100 shadow-xl">
-  <figure><img className='w-full h-[300px]' src={tool.image} alt="Shoes" /></figure>
+  <figure><img className='w-full h-[300px]' src={tool.image} alt="" /></figure>
   <div class="card-body">
     <h2 class="card-title">{tool.name}</h2>
     <p>{tool.description}</p>

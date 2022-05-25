@@ -16,6 +16,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Payment from './Pages/Dashboard/Payment';
 import AllUsers from './Pages/Dashboard/AllUsers';
 import AdminRoute from './Pages/AdminRoute';
+import AddProduct from './Pages/Dashboard/AddProduct';
+import NotFound from './Pages/NotFound';
 function App() {
   return (
     <div className='lg:px-20'>
@@ -33,8 +35,11 @@ function App() {
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='alluser' element={<AdminRoute><AllUsers></AllUsers></AdminRoute>}></Route>
+          <Route path='addproduct' element={<AdminRoute><AddProduct></AddProduct></AdminRoute>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
+
         </Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>

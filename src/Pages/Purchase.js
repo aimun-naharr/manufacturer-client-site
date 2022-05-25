@@ -77,7 +77,7 @@ const Purchase = () => {
 
 
 
-            <div>
+            <div className='shadow-2xl p-10'>
                 <form onSubmit={handlePurchase}>
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
