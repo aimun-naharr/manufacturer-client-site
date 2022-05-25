@@ -48,7 +48,7 @@ const MyOrders = () => {
           {/* <!-- row 1 --> */}
 
           {
-            orders.map((order, index) =>
+            orders?.map((order, index) =>
               <tr>
                 <th>{index + 1}</th>
                 <td>{order.userName}</td>

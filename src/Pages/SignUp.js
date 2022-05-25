@@ -42,6 +42,7 @@ const SignUp = () => {
 
         await createUserWithEmailAndPassword(email, password)
         await updateProfile({ displayName: data?.name });
+        
 
     };
     return (
