@@ -24,10 +24,10 @@ const AllUsers = () => {
     {/* <!-- head --> */}
     <thead>
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        
+        <th>User</th>
+        <th>Role</th>
+        
       </tr>
     </thead>
     <tbody>
