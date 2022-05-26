@@ -19,6 +19,7 @@ import AdminRoute from './Pages/AdminRoute';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import NotFound from './Pages/NotFound';
 import Blogs from './Pages/Blogs';
+import Portfolio from './Pages/Portfolio';
 function App() {
   return (
     <div className='lg:px-20'>
@@ -27,6 +28,7 @@ function App() {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/home' element={<Home/>}></Route>
       <Route path='/blogs' element={<Blogs/>}></Route>
+      <Route path='/portfolio' element={<Portfolio/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/signup' element={<SignUp/>}></Route>
       <Route path='/purchase/:id' element={<PrivateRoute><Purchase></Purchase></PrivateRoute>}></Route>
