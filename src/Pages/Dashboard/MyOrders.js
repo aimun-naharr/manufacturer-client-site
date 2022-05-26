@@ -13,7 +13,7 @@ const MyOrders = () => {
   const navigate = useNavigate()
   const email = user.email
   const { isLoading, data: orders, refetch } = useQuery('orders', () =>
-    fetch(`http://localhost:5000/order/${email}`, {
+    fetch(`https://sheltered-wildwood-63825.herokuapp.com/order/${email}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`

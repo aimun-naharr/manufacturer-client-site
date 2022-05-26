@@ -7,7 +7,7 @@ const Tool = ({tool}) => {
 navigate(`/purchase/${id}`)
   }
     return (
-        <div class="card card-compact md:w-96 w-72 bg-base-100 shadow-xl">
+        <div class="card card-compact md:w-96  bg-base-100 shadow-xl">
   <figure><img className='w-full h-[300px]' src={tool.image} alt="" /></figure>
   <div class="card-body">
     <h2 class="card-title">{tool.name}</h2>

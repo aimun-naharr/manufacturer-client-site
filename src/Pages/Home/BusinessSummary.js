@@ -2,7 +2,9 @@ import React from 'react';
 
 const BusinessSummary = () => {
     return (
-        <div className='flex justify-center '>
+        <div>
+            <h1 className='text-4xl uppercase text-center font-bold'>Business <span className='text-secondary'>Summary</span></h1>
+            <div className='flex justify-center '>
             <div class="stats shadow mt-12">
 
                 <div class="stat">
@@ -41,6 +43,7 @@ const BusinessSummary = () => {
                 </div>
 
             </div>
+        </div>
         </div>
     );
 };

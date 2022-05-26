@@ -7,7 +7,7 @@ const useAllUser=user=>{
         const email=user?.user?.email
         const currentUser={email:email}
         if(email){
-            fetch(`http://localhost:5000/user/${email}`,{
+            fetch(`https://sheltered-wildwood-63825.herokuapp.com/user/${email}`,{
             method: 'PUT',
             
             headers: {

@@ -15,7 +15,7 @@ const AddReview = () => {
             ratings: data.ratings,
             name
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://sheltered-wildwood-63825.herokuapp.com/review', {
             method: 'POST',
             body: JSON.stringify(review),
             headers: {

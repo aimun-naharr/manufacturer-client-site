@@ -18,7 +18,7 @@ const CheckoutForm = ({ payment }) => {
     }
     else {
 
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://sheltered-wildwood-63825.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -86,7 +86,7 @@ payment={
     transactionId: paymentIntent.id
 }
 
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://sheltered-wildwood-63825.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 body: JSON.stringify(payment),
                 headers: {

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const CancelModal = ({ order, refetch, setDeleteOrder }) => {
   const { name, _id } = order
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/tool/${id}`, {
+    fetch(`https://sheltered-wildwood-63825.herokuapp.com/tool/${id}`, {
   method: 'DELETE',
   
   headers: {

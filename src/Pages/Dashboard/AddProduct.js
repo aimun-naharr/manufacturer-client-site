@@ -28,7 +28,7 @@ const AddProduct = () => {
                         image:img}
                 
                 console.log(product)
-                fetch('http://localhost:5000/product',{
+                fetch('https://sheltered-wildwood-63825.herokuapp.com/product',{
                     method:'POST',
                     body: JSON.stringify(product),
                     headers:{

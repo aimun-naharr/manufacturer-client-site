@@ -18,13 +18,15 @@ import AllUsers from './Pages/Dashboard/AllUsers';
 import AdminRoute from './Pages/AdminRoute';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import NotFound from './Pages/NotFound';
+import Blogs from './Pages/Blogs';
 function App() {
   return (
     <div className='lg:px-20'>
       <Navbar></Navbar>
       <Routes>
-      <Route path='/home' element={<Home/>}></Route>
       <Route path='/' element={<Home/>}></Route>
+      <Route path='/home' element={<Home/>}></Route>
+      <Route path='/blogs' element={<Blogs/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/signup' element={<SignUp/>}></Route>
       <Route path='/purchase/:id' element={<PrivateRoute><Purchase></Purchase></PrivateRoute>}></Route>

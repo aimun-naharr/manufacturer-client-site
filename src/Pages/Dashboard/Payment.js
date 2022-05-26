@@ -11,7 +11,7 @@ const Payment = () => {
     
     const [payment, setPayment] = useState({})
     console.log(payment)
-    const url = `http://localhost:5000/payment/${id}`
+    const url = `https://sheltered-wildwood-63825.herokuapp.com/payment/${id}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

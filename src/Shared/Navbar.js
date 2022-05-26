@@ -45,14 +45,14 @@ const Navbar = () => {
           {
             user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
           }
-          <li tabindex="0">
-            <a>
-              Parent
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-            </a>
+          <li >
+            <NavLink to='/blogs'>
+              Blogs
+              
+            </NavLink>
 
           </li>
-          <li><a>Item 3</a></li>
+          
         </ul>
       </div>
       <div class="navbar-end">
@@ -60,7 +60,7 @@ const Navbar = () => {
           !user && <Link to='/login'>Login</Link>
         }
         {
-          user && <div><button className='lg:btn lg:btn-outline hidden'>{user.displayName}</button> <button onClick={logout} className='md:ml-3 btn btn-xs sm:btn-sm md:btn-md lg:btn-lg'>Sign out</button></div>
+          user && <div><button className='xl:btn xl:btn-outline md:hidden lg:hidden hidden'>{user.displayName}</button> <button onClick={logout} className='md:ml-3 btn btn-xs sm:btn-sm md:btn-md lg:btn-lg'>Sign out</button></div>
 
         }
       </div>

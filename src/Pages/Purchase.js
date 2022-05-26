@@ -13,7 +13,7 @@ const Purchase = () => {
     const email = user.email
     const [quantityError, setQuantityError] = useState('')
     const { data: tool, isLoading } = useQuery('tool', () =>
-        fetch(`http://localhost:5000/purchase/${id}`).then(res =>
+        fetch(`https://sheltered-wildwood-63825.herokuapp.com/purchase/${id}`).then(res =>
             res.json()
         )
     )
@@ -41,7 +41,7 @@ const Purchase = () => {
 
         }
         else {
-            fetch('http://localhost:5000/order', {
+            fetch('https://sheltered-wildwood-63825.herokuapp.com/order', {
                 method: 'POST',
                 body: JSON.stringify({userName,email, name, amount, address, phone}),
                 headers: {
